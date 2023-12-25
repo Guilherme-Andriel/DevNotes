@@ -1,0 +1,333 @@
+/* Geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+  }
+
+  :root{
+    --background-principal: #292a2b;
+    --buttons-color: #333;
+    --input-color: #525356;
+    --icons-color: #555;
+    --fixed-color: #3c3c3f;
+  }
+
+  .preto{
+    --background-principal: #292a2b;
+  }
+
+  .branco{
+    --background-principal: #fff;
+    --buttons-color: #e9ecef;
+    --input-color: #ced4da;
+    --icons-color: #adb5bd;
+    --fixed-color: #dee2e6;
+  }
+  
+  .verde{
+    --background-principal: #1b4332;
+    --buttons-color: #2d6a4f;
+    --input-color: #40916c;
+    --icons-color: #52b788;
+    --fixed-color: #74c69d;
+  }
+
+  .azul{
+    --background-principal: #184e77;
+    --buttons-color: #1e6091;
+    --input-color: #168aad;
+    --icons-color: #34a0a4;
+    --fixed-color: #1a759f;
+  }
+
+  .rosa{
+    --background-principal: #ff4d6d;
+    --buttons-color: #ff758f;
+    --input-color: #ffb3c1;
+    --icons-color: #ffccd5;
+    --fixed-color: #ff8fa3;
+  }
+  body {
+    background-color: var(--background-principal);
+  }
+  
+  /* Cabeçalho */
+  header {
+    border-bottom: 1px solid #ccc;
+    padding: 1rem 2rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  #search-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  #search-input {
+    background-color: var(--input-color);
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    color: #ddd;
+    width: 400px;
+  }
+  
+  #search::placeholder {
+    color: #ddd;
+  }
+
+  #buttons{
+    display: flex;
+    gap: 20px;
+
+  }
+  
+  .styleBtn {
+    background-color: var(--buttons-color);
+    border: 2px solid #fff;
+    border-radius: 4px;
+    color: #fff;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+  
+  .styleBtn:hover, .themesActive {
+    background-color: #fff;
+    color: var(--buttons-color);
+  }
+
+  .styleBtn i{
+    margin-left: 10px;
+  }
+
+  .themes{
+    position: absolute;
+    top: 160px;
+    right: 20px;
+    width: 50vw;
+    height: auto;
+    min-width: 220px;
+    max-width: 240px;
+    background: #fff; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999; 
+    border-radius: 10px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    
+
+  }
+
+  @media (min-width: 1008px) {
+    .themes{
+      top: 80px;
+      
+    }
+  }
+
+  @media (min-width: 807px) and (max-width: 1007px) {
+    .themes{
+      top: 120px;
+      
+    }
+  }
+
+
+  .tituloThemes{
+    width: 100%;
+    
+  }
+
+  .optionsThemes{
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .caixaThema{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+  }
+
+  @media (max-width: 430px){
+    .caixaThema{
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .caixaThema:hover, .caixaThemaAtiva{
+   outline: solid 2px #40916c;
+   outline-offset: 3px;
+  }
+
+  #themePreto{
+    background-color: #242323;
+  }
+  #themeBranco{
+    background-color: #eee9e9;
+  }
+  #themeAzul{
+    background-color: #2e6c88;
+  }
+  #themeVerde{
+    background-color: #2a611f;
+  }
+  #themeRosa{
+    background-color: #d124d1;
+  }
+ 
+  
+  /* Form de nova nota */
+  #add-note-container {
+    display: flex;
+    width: 400px;
+    margin: 1rem auto 0;
+    gap: 1rem;
+  }
+  
+  #add-note-container input,
+  #add-note-container button {
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  #add-note-container input {
+    flex: 1;
+    background-color: transparent;
+    border: 1px solid var(--input-color);
+    color: #fff;
+  }
+  
+  #add-note-container button {
+    cursor: pointer;
+    background-color: var(--buttons-color);
+    color: #fff;
+  }
+  
+  /* Notas */
+  #notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    padding: 2rem;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .note {
+    min-height: 200px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    background-color: var(--background-principal);
+    border-radius: 10px;
+    color: #fff;
+    position: relative;
+  }
+  
+  .note textarea {
+    background-color: transparent;
+    resize: none;
+    color: #fff;
+    border: none;
+    height: 100%;
+    outline: none;
+  }
+  
+  .note .bi-pin {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: var(--buttons-color);
+    padding: 5px;
+    border-radius: 3px;
+  }
+  
+  .note:hover > i {
+    opacity: 1;
+  }
+  
+  .note .bi-x-lg,
+  .note .bi-file-earmark-plus {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 5px;
+    color: var(--icons-color);
+    opacity: 0;
+    transition: 0.3s;
+  }
+  
+  .note .bi-file-earmark-plus {
+    top: 40px;
+  }
+  
+  .note .bi-x-lg:hover,
+  .note .bi-file-earmark-plus:hover {
+    color: #fff;
+  }
+  
+  .note.fixed {
+    background-color: var(--fixed-color);
+  }
+
+
+  @media (max-width: 567px) {
+    
+   
+
+    #notes-container{
+      grid-template-columns: repeat(auto-fill, 100%);
+    }
+  }
+
+  @media (min-width: 567px) and (max-width: 1007px) {
+
+   
+
+    #notes-container{
+      grid-template-columns: repeat(auto-fill, 450px);
+    }
+  }
+
+  @media (max-width: 1007px) {
+
+      header{
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  #search-container{
+    width: 100%;
+  }
+
+  #search-input{
+    width: 100%;
+  }
+
+  #add-note-container{
+    width: 100%;
+    padding: 0 2rem;
+
+  }
+  }
+
