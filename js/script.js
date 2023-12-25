@@ -25,6 +25,7 @@ function cleanNotes(){
 function addNote(){
     const notes = getNotes(); //Obter array com dados já salvos no local Storage
 
+    if(noteInput.value === "")return
     // Dados de entrada para criação das notes
    const noteObject = {
     id: generateId(),
@@ -243,16 +244,20 @@ function mudancaDeCor(cor, classeCor) {
     const html = document.documentElement;
     const caixasTema = document.querySelectorAll(".caixaThema");
     
+
         cor.addEventListener("click", () => {
-            console.log("deu certo!");
+            if(classeCor === "branco"){
+                document.documentElement.style.setProperty('--text-color', '#000');
+            }else{
+                document.documentElement.style.setProperty('--text-color', '#fff');
+            }
 
             caixasTema.forEach(caixa => {
                 caixa.classList.remove("caixaThemaAtiva");
             });
 
             html.classList = [];
-            html.classList.remove("verde", "branco", "azul", "rosa");
-            
+
             cor.classList.add("caixaThemaAtiva")
             
             html.classList.add(classeCor);
@@ -261,10 +266,14 @@ function mudancaDeCor(cor, classeCor) {
 }
 
 
+
+
+
 function optionTemas(){
 
    const element = document.createElement("div")
    element.classList.add("themes")
+   
 
    const titulo = document.createElement("p")
    titulo.classList.add("tituloThemes")
@@ -304,12 +313,13 @@ function optionTemas(){
 
     document.body.appendChild(element);
 
-   
     mudancaDeCor(verde, "verde")
     mudancaDeCor(branco, "branco")
     mudancaDeCor(azul, "azul")
     mudancaDeCor(rosa, "rosa")
     mudancaDeCor(preto, "preto")
+
+    
 }
 
 
@@ -336,17 +346,17 @@ exportBtn.addEventListener("click", () =>{
     exportData()
 })
 
-temasBtn.addEventListener("click", () =>{
+
+temasBtn.addEventListener("click", () => {
     if (temasBtn.classList.contains("themesActive")) {
         temasBtn.classList.remove("themesActive");
-        const element = document.querySelector(".themes");
-        element.remove();
-     
-     } else {
+        const element = document.querySelector(".themes")
+        element.remove()
+    } else {
         optionTemas();
         temasBtn.classList.add("themesActive");
-     }
-})
+    }
+});
 
 // Inicialização 
 showNotes()  //Primeira tarefa que é feita, buscar os dados(Notes) salvos antes e exibir

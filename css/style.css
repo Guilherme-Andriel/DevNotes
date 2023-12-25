@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Helvetica;
+   
   }
 
   :root{
@@ -12,10 +13,9 @@
     --input-color: #525356;
     --icons-color: #555;
     --fixed-color: #3c3c3f;
-  }
+    --sombra: rgba(0, 0, 0, 0.5);
+    --text-color:#fff;
 
-  .preto{
-    --background-principal: #292a2b;
   }
 
   .branco{
@@ -24,30 +24,38 @@
     --input-color: #ced4da;
     --icons-color: #adb5bd;
     --fixed-color: #dee2e6;
+    --sombra: rgba(0, 0, 0, 0.2)
+   
   }
   
   .verde{
-    --background-principal: #1b4332;
+    --background-principal: #64bd95;
     --buttons-color: #2d6a4f;
     --input-color: #40916c;
     --icons-color: #52b788;
     --fixed-color: #74c69d;
+    --sombra: rgba(0, 0, 0, 0.2)
+    
   }
 
   .azul{
-    --background-principal: #184e77;
+    --background-principal: #75a7d6;
     --buttons-color: #1e6091;
-    --input-color: #168aad;
-    --icons-color: #34a0a4;
-    --fixed-color: #1a759f;
+    --input-color: #1a759f;
+    --icons-color: #168aad;
+    --fixed-color: #184e77;
+    --sombra: rgba(0, 0, 0, 0.2)
+   
   }
 
   .rosa{
-    --background-principal: #ff4d6d;
-    --buttons-color: #ff758f;
-    --input-color: #ffb3c1;
-    --icons-color: #ffccd5;
-    --fixed-color: #ff8fa3;
+    --background-principal: #ba66be;
+    --buttons-color: #9d4edd;
+    --input-color: #5a189a;
+    --icons-color: #cfbaf0;
+    --fixed-color: #5a189a;
+    --sombra: rgba(0, 0, 0, 0.2)
+
   }
   body {
     background-color: var(--background-principal);
@@ -57,7 +65,7 @@
   header {
     border-bottom: 1px solid #ccc;
     padding: 1rem 2rem;
-    color: #fff;
+    color: var(--text-color);
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -75,7 +83,7 @@
     border: none;
     padding: 10px;
     font-weight: bold;
-    color: #ddd;
+    color: var(--text-color);
     width: 400px;
   }
   
@@ -93,15 +101,17 @@
     background-color: var(--buttons-color);
     border: 2px solid #fff;
     border-radius: 4px;
-    color: #fff;
+    color: var(--text-color);
     padding: 5px 15px;
     cursor: pointer;
+    opacity: 1;
     transition: 0.4s;
   }
   
   .styleBtn:hover, .themesActive {
-    background-color: #fff;
+    background-color:var(--text-color);
     color: var(--buttons-color);
+    opacity: 0.8;
   }
 
   .styleBtn i{
@@ -116,22 +126,21 @@
     height: auto;
     min-width: 220px;
     max-width: 240px;
-    background: #fff; 
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    background: var(--text-color); 
+    box-shadow: 0px 0px 10px var(--sombra);
     z-index: 999; 
     border-radius: 10px;
     padding: 20px;
 
     display: flex;
     flex-direction: column;
-    
 
   }
 
   @media (min-width: 1008px) {
     .themes{
       top: 80px;
-      
+      right: 60px;
     }
   }
 
@@ -145,7 +154,7 @@
 
   .tituloThemes{
     width: 100%;
-    
+    color: var(--background-principal);
   }
 
   .optionsThemes{
@@ -162,6 +171,7 @@
     width: 40px;
     height: 40px;
     margin: 10px;
+    cursor: pointer;
   }
 
   @media (max-width: 430px){
@@ -186,10 +196,10 @@
     background-color: #2e6c88;
   }
   #themeVerde{
-    background-color: #2a611f;
+    background-color: #64bd95;
   }
   #themeRosa{
-    background-color: #d124d1;
+    background-color: #ba66be;
   }
  
   
@@ -211,13 +221,13 @@
     flex: 1;
     background-color: transparent;
     border: 1px solid var(--input-color);
-    color: #fff;
+    color: var(--text-color);
   }
   
   #add-note-container button {
     cursor: pointer;
     background-color: var(--buttons-color);
-    color: #fff;
+    color: var(--text-color);
   }
   
   /* Notas */
@@ -235,14 +245,14 @@
     border: 1px solid #ccc;
     background-color: var(--background-principal);
     border-radius: 10px;
-    color: #fff;
+    color: var(--text-color);
     position: relative;
   }
   
   .note textarea {
     background-color: transparent;
     resize: none;
-    color: #fff;
+    color: var(--text-color);
     border: none;
     height: 100%;
     outline: none;
@@ -282,7 +292,7 @@
   
   .note .bi-x-lg:hover,
   .note .bi-file-earmark-plus:hover {
-    color: #fff;
+    color: var(--text-color);
   }
   
   .note.fixed {
